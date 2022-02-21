@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +12,14 @@
 </head>
 <body>
     <?php require "code/imports/header.php" ?>
-
-    <h1>Uw lijsten</h1>
-    <?php if (!isset($user)) { ?>
-        <p><a class="urls" href="code/pages/login.php">Login</a></p>
-    <?php } else { ?>
-        <p><?php $user['name'] ?></p>
-    <?php } ?>
-
+    <div id="container">
+        <?php if (!isset($user)) { ?>
+            <p>U bent niet ingelogd</p>
+            <a class="urls" href="code/pages/login.php">Login</a>
+        <?php } else { ?>
+            <p><?php $user['name'] ?></p>
+        <?php } ?>
+    </div>
     <?php require "code/imports/footer.php" ?>
 </body>
 </html>

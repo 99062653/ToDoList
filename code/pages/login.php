@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,8 @@
     <title>To Do List</title>
 </head>
 <body>
-    
+    <?php require "../imports/header.php" ?>
+
+    <?php require "../imports/footer.php" ?>
 </body>
 </html>
