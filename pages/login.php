@@ -14,9 +14,10 @@
     <div id="form">
         <form action="" method="post">
             <label for="username">Username:</label>
-            <input required type="text" name="username" value="<?php echo $_POST["username"]; ?>" ><br>
+            <input required type="text" name="username" value="<?php echo isset($_POST["username"]) ? $_POST["username"] : '' ?>" ><br>
             <label for="password">Password:</label>
             <input required type="password" name="password"><br>
+            <a href="../index.php"><input type="button" value="Terug"></a>
             <input type="submit" value="Login">
         </form>
     </div>
