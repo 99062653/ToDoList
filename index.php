@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,15 +11,18 @@
     <title>To Do List</title>
 </head>
 <body>
-    <?php require "code/imports/header.php" ?>
+    <header> 
+        <img class="logo" src="img/logo.png" alt="Logo">
+        <div id="header-buttons">
+            <a id="login-button" class="urls" href="pages/login.php">Login</a>
+            <a id="signup-button" class="urls" href="pages/signup.php">Get Started</a>
+        </div>
+    </header>
     <div id="container">
-        <?php if (!isset($user)) { ?>
-            <p>U bent niet ingelogd</p>
-            <a class="urls" href="code/pages/login.php">Login</a>
-        <?php } else { ?>
-            <p><?php $user['name'] ?></p>
-        <?php } ?>
+        
     </div>
-    <?php require "code/imports/footer.php" ?>
+    <footer>
+        <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?php echo date("Y"); ?></a>
+    </footer>
 </body>
 </html>
