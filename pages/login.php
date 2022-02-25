@@ -17,6 +17,7 @@ require "../code/accountservice.php"
             <input required type="text" name="username" value="<?php echo isset($_POST["username"]) ? $_POST["username"] : '' ?>" ><br>
             <label for="password">Password:</label>
             <input required type="password" name="password"><br>
+            <p id="error"><?php echo $errormessage ?></p>
             <a href="../index.php"><input type="button" value="Terug"></a>
             <input type="submit" value="Login">
         </form>

@@ -14,8 +14,12 @@
     <header> 
         <img class="logo" src="img/logo.png" alt="Logo">
         <div id="header-buttons">
-            <a id="login-button" class="urls" href="pages/login.php">Login</a>
-            <a id="signup-button" class="urls" href="pages/signup.php">Get Started</a>
+            <?php if (!isset($_COOKIE["user"])) { ?>
+                <a id="login-button" class="urls" href="pages/login.php">Login</a>
+                <a id="signup-button" class="urls" href="pages/signup.php">Get Started</a>
+            <?php } else { ?>
+                <a class="urls" href="pages/login.php">Logout</a>
+            <?php } ?>
         </div>
     </header>
     <div id="container">
