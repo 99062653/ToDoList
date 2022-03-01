@@ -1,5 +1,5 @@
 <?php 
-require "connection.php";
+require "../code/connection.php";
 $errormessage = "";
 
 if ($_GET["login"] == -1) {
@@ -39,8 +39,22 @@ if (isset($_POST["newusername"])) {
 
     $result = $stmt->get_result();
     if ($result->num_rows == 0) {   
-        $hashed = hash("md5", $_POST["newpassword"]);
+        if (strlen($_POST["newpassword"]) > 8 && strlen($_POST["newpassword"]) < 15) {
+            if(preg_match("/\W/", $_POST["newpassword"])) {
+                $hashed = hash("md5", $_POST["newpassword"]);
+                $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
+                $stmt->bind_param("ss", $_POST["newusername"], $hashed);
+                $stmt->execute();
 
+                $id = $conn->insert_id;
+                setcookie("userid", $id, time()+3600 , "/" );
+                header("location: ../index.php");
+            } else {
+                $errormessage = "Password moet een special character hebben";
+            }
+        } else {
+            $errormessage = "Password niet korter dan 8 en langer dan 15";
+        }
     } else {
         $errormessage = "Dit account bestaat al";
     }

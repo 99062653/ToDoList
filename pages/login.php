@@ -1,5 +1,5 @@
 <?php 
-require "../code/loginservice.php";
+require "../code/services/loginservice.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
