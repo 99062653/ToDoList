@@ -1,5 +1,5 @@
 <?php 
-require "../code/accountservice.php"
+require "../code/loginservice.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,16 +11,30 @@ require "../code/accountservice.php"
     <title>LOGIN</title>
 </head>
 <body>
-    <div id="form">
-        <form action="" method="post">
-            <label for="username">Username:</label>
-            <input required type="text" name="username" value="<?php echo isset($_POST["username"]) ? $_POST["username"] : '' ?>" ><br>
-            <label for="password">Password:</label>
-            <input required type="password" name="password"><br>
-            <p id="error"><?php echo $errormessage ?></p>
-            <a href="../index.php"><input type="button" value="Terug"></a>
-            <input type="submit" value="Login">
-        </form>
-    </div>
+    <?php if ($_GET["login"] == 1) { ?>
+        <div id="form">
+            <form action="" method="post">
+                <label for="username">Username:</label>
+                <input required type="text" name="username" value="<?php echo isset($_POST["username"]) ? $_POST["username"] : '' ?>">*<br>
+                <label for="password">Password:</label>
+                <input required type="password" name="password">*<br>
+                <p id="error"><?php echo $errormessage ?></p>
+                <a href="../index.php"><input type="button" value="Terug"></a>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    <?php } elseif ($_GET["login"] == 0) { ?>
+        <div id="form">
+            <form action="" method="post">
+                <label for="newusername">Username:</label>
+                <input required type="text" name="newusername" value="<?php echo isset($_POST["newusername"]) ? $_POST["newusername"] : '' ?>">*<br>
+                <label for="newpassword">Password:</label>
+                <input required type="password" name="newpassword">*<br>
+                <p id="error"><?php echo $errormessage ?></p>
+                <a href="../index.php"><input type="button" value="Terug"></a>
+                <input type="submit" value="Sign up">
+            </form>
+        </div>
+    <?php } ?>
 </body>
 </html>
