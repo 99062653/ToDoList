@@ -4,6 +4,7 @@ $errormessage = "";
 
 if ($_GET["login"] == -1) {
     setcookie("userid", $row["id"], time()-3600 , "/" );
+    setcookie("username", $row["username"], time()-3600 , "/" );
     header("location: ../index.php");
 }
 
@@ -20,9 +21,10 @@ if (isset($_POST["username"])) {
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $row = $result -> fetch_assoc();
+        $row = $result->fetch_assoc();
         if($result->num_rows != 0) {
             setcookie("userid", $row["id"], time()+3600 , "/" );
+            setcookie("username", $row["username"], time()+3600 , "/" );
             header("location: ../index.php");
         } else {
             $errormessage = "onjuist wachtwoord";
@@ -48,6 +50,7 @@ if (isset($_POST["newusername"])) {
 
                 $id = $conn->insert_id;
                 setcookie("userid", $id, time()+3600 , "/" );
+                setcookie("username", $_POST["newusername"], time()+3600 , "/" );
                 header("location: ../index.php");
             } else {
                 $errormessage = "Password moet een special character hebben";
