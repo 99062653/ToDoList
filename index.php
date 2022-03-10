@@ -1,9 +1,12 @@
-<?php 
-require "code/services/listservice.php";
+<?php
+if (isset($_COOKIE["userid"])) {
+    require "code/services/homeservice.php";
+}
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +14,9 @@ require "code/services/listservice.php";
     <link rel="stylesheet" href="style/style.css">
     <title>To Do List</title>
 </head>
+
 <body>
-    <header> 
+    <header>
         <img class="logo" src="img/logo.png" alt="Logo">
         <div id="header-buttons">
             <?php if (isset($_COOKIE["userid"])) { ?>
@@ -25,13 +29,21 @@ require "code/services/listservice.php";
     </header>
     <div id="container">
         <?php if (isset($_COOKIE["userid"])) { ?>
-            <h1>Welkom terug <?php echo $_COOKIE["username"]; ?></h1>
-        <?php } else { ?>
+            <div id="header-container">
+                <h1><?php echo $_COOKIE["username"]; ?>, Uw lijsten <span class="header-new"><a class="urls" href="pages/list.php?new=1">Nieuwe lijst + </a></span></h1>
+            </div>
+            <div id="lists">
 
+            </div>
+        <?php } else { ?>
+            <div id="header-container">
+                <h1>Login of Sign up!</h1>
+            </div>
         <?php } ?>
     </div>
     <footer>
         <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?php echo date("Y"); ?></a>
     </footer>
 </body>
+
 </html>
