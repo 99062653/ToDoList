@@ -29,7 +29,7 @@ require "../code/services/listservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="title">Title:</label>
-                <input required type="text" name="title" value="<?php echo $title ?>">*<br>
+                <input required type="text" name="title" value="<?php echo $title ?>">* <div id="Delete">X</div><br>
                 <label for="description">Description:</label>
                 <input type="text" name="description" value="<?php echo $description ?>"><br>
                 <p id="error"><?php echo $errormessage ?></p>
@@ -37,7 +37,26 @@ require "../code/services/listservice.php";
                 <input type="submit" value="Edit">
             </form>
         </div>
+        <div id="popUp" style="display: none;">
+            <form action="" method="post">
+                <h1>Lijst verwijderen?</h1>
+
+                <input id="yesButton" type="submit" name="delete" value="Ja"></input>
+                <button id="noButton" name="no" value="Nee">Nee</button>
+            </form>
+        </div>
     <?php } ?>
 </body>
 
+<script>
+    const deleteButton = document.getElementById("Delete");
+    const noButton = document.getElementById("noButton");
+    const popUp = document.getElementById("popUp");
+    deleteButton.onclick = function() {
+        popUp.style.display = "block";
+    }
+    noButton.onclick = function() {
+        popUp.style.display = "none";
+    }
+</script>
 </html>

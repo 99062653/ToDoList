@@ -44,6 +44,15 @@ if ($_GET["new"] == 0) {
             $errormessage = "Title moet minimaal 5 characters hebben";
         }
     }
+
+    if (isset($_POST["delete"])) {
+        $stmt = $conn->prepare("DELETE FROM list WHERE id = ?");
+        $stmt->bind_param("i", $_GET["id"]);
+        $stmt->execute();
+    
+        
+        header("location: ../index.php");
+    }
 }
 
 ?>

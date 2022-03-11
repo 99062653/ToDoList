@@ -37,6 +37,7 @@ if (isset($_COOKIE["userid"])) {
                     <div id="list">
                         <h2><?php echo $list["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?new=0&id=<?php echo $list["id"] ?>">Edit</a></span></h2>
                         <p><?php echo $list["description"] ?></p>
+                        <a class="urls task-add" href="pages/task.php?new=1&listid=<?php echo $list["id"] ?>">+</a>
                     </div>
                 <?php } ?>
             </div>
