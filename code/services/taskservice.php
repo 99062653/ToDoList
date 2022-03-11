@@ -5,7 +5,7 @@ $errormessage = "";
 if ($_GET["new"] == 1) {
     if (isset($_POST["newdescription"])) {
         if (strlen($_POST["newdescription"]) > 3) {
-            if (strlen($_POST["newtime"]) > 2) {
+            if (strlen($_POST["newtime"]) >= 2) {
                 $stmt = $conn->prepare("INSERT INTO task (description, status, time, listid) VALUES (?, ?, ?, ?)");
                 $stmt->bind_param("ssii", $_POST["newdescription"], $_POST["newstatus"], $_POST["newtime"], $_GET["listid"]);
                 $stmt->execute();

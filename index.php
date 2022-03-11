@@ -45,7 +45,8 @@ if (isset($_COOKIE["userid"])) {
                         <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
                             <div id="task">
                                 <h3><?php echo $taskrows[$j]["description"] ?></h3>
-                                <h3>status: <?php echo $taskrows[$j]["status"] ?></h3>
+                                <h3>Status: <?php echo $taskrows[$j]["status"] ?></h3>
+                                <h3>Time: <?php echo $taskrows[$j]["time"] ?></h3>
                             </div>
                         <?php } ?>
                         </div>

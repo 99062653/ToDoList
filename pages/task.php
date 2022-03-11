@@ -19,7 +19,7 @@ require "../code/services/taskservice.php";
                 <label for="newdescription">Description:</label>
                 <input required type="text" name="newdescription" value="<?php echo isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>">*<br>
                 <label for="newstatus">Status:</label>
-                <select name="newstatus">
+                <select name="newstatus" value="<?php echo isset($_POST["newstatus"]) ? $_POST["newstatus"] : '' ?>">
                     <option value="done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>
