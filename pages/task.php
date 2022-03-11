@@ -26,7 +26,7 @@ require "../code/services/taskservice.php";
                     <option value="Failed">Failed</option>
                 </select><br>
                 <label for="newtime">Time:</label>
-                <input type="number" name="newtime">
+                <input required type="number" name="newtime" value="<?php echo isset($_POST["newtime"]) ? $_POST["newtime"] : '' ?>">*
                 <p id="error"><?php echo $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Add">
