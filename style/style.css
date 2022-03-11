@@ -111,3 +111,32 @@ input[type="button"] {
 .header-new:hover > .urls {
     color: white;
 }
+
+#lists {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 250px 250px 250px 250px 250px;
+    grid-gap: 15px;
+    margin: 5px;
+}
+
+#list {
+    padding: 5px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.list-edit {
+    float: right;
+    font-size: 15px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #808080;
+}

@@ -6,7 +6,5 @@ $stmt->bind_param("s", $_COOKIE["userid"]);
 $stmt->execute();
 
 $result = $stmt->get_result();
-$row = $result->fetch_assoc(); 
-
 
 ?>

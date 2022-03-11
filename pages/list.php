@@ -26,7 +26,17 @@ require "../code/services/listservice.php";
             </form>
         </div>
     <?php } else if ($_GET["new"] == 0) { ?>
-        
+        <div id="form">
+            <form action="" method="post">
+                <label for="title">Title:</label>
+                <input required type="text" name="title" value="<?php echo $title ?>">*<br>
+                <label for="description">Description:</label>
+                <input type="text" name="description" value="<?php echo $description ?>"><br>
+                <p id="error"><?php echo $errormessage ?></p>
+                <a href="../index.php"><input type="button" value="Terug"></a>
+                <input type="submit" value="Edit">
+            </form>
+        </div>
     <?php } ?>
 </body>
 
