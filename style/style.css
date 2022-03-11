@@ -178,10 +178,17 @@ input[type="button"] {
 }
 
 .task-add {
+    float: right;
     font-weight: bolder;
     font-size: 25px;
-    margin-right: 5px;
-    float: right;
+}
+
+#tasks {
+    margin-top: 40px;
+}
+
+#task {
+    border-top: 1px solid black;
 }
 
 h2 {

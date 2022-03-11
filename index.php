@@ -36,11 +36,19 @@ if (isset($_COOKIE["userid"])) {
                 <h1><?php echo $_COOKIE["username"]; ?>, Uw lijsten <span class="header-new"><a class="urls" href="pages/list.php?new=1">Nieuwe lijst + </a></span></h1>
             </div>
             <div id="lists">
-                <?php while($list = $listresult->fetch_assoc()) { ?>
+                <?php for ($i = 0; $i < count($listrows); $i++) { ?>
                     <div id="list">
-                        <h2><?php echo $list["title"] . " (" . $list["id"] . ")" ?> <span class="list-edit"><a class="urls" href="pages/list.php?new=0&id=<?php echo $list["id"] ?>">Edit</a></span></h2>
-                        <p><?php echo strlen($list["description"]) > 0 ? $list["description"] : "Geen description" ?></p>
-                        <a class="urls task-add" href="pages/task.php?new=1&listid=<?php echo $list["id"] ?>">+</a>
+                        <h2><?php echo $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?new=0&id=<?php echo $listrows[$i]["id"] ?>">Edit</a></span></h2>
+                        <p><?php echo strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
+                        <a class="urls task-add" href="pages/task.php?new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
+                        <div id="tasks">
+                        <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
+                            <div id="task">
+                                <h3><?php echo $taskrows[$j]["description"] ?></h3>
+                                <h3>status: <?php echo $taskrows[$j]["status"] ?></h3>
+                            </div>
+                        <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
