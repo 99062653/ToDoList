@@ -172,7 +172,7 @@ input[type="button"] {
     background-color: #ffffff;
 }
 
-.list-edit {
+.list-edit, .task-edit {
     float: right;
     font-size: 15px;
 }

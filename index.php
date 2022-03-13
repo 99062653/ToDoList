@@ -20,7 +20,7 @@ if (isset($_COOKIE["userid"])) {
         <img class="logo" src="img/logo.png" alt="Logo">
         <div id="header-buttons">
             <?php if (isset($_COOKIE["userid"])) { ?>
-                <?php if (isset($_COOKIE["superuser"]) == 1) { ?>
+                <?php if (isset($_COOKIE["superuser"]) == 1) { ?>  
                     <a class="urls" href="pages/admin.php">Admin</a>
                 <?php } ?>
                 <a class="urls" href="pages/login.php?login=-1">Logout</a>
@@ -44,13 +44,13 @@ if (isset($_COOKIE["userid"])) {
                         <div id="tasks">
                         <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
                             <div id="task">
-                                <h3><?php echo $taskrows[$j]["description"] ?></h3>
+                                <h3><?php echo $taskrows[$j]["description"] ?><span class="task-edit"><a class="urls" href="pages/task.php?new=0&id=<?php echo $taskrows[$j]["id"] ?>">Edit</a></span></h3>
                                 <h3>Status: <?php echo $taskrows[$j]["status"] ?></h3>
                                 <h3>Time: <?php echo $taskrows[$j]["time"] ?></h3>
                             </div>
                         <?php } ?>
                         </div>
-                    </div>
+                    </div> 
                 <?php } ?>
             </div>
         <?php } else { ?>
