@@ -33,8 +33,44 @@ require "../code/services/taskservice.php";
             </form>
         </div>
     <?php } else if ($_GET["new"] == 0) { ?>
+        <div id="form">
+            <form action="" method="post">
+            <label for="description">Description:</label>
+                <input required type="text" name="description" value="<?php echo $description ?>">* <div id="Delete">X</div><br>
+                <label for="status">Status:</label>
+                <select name="status"  value="<?php echo $status ?>">>
+                    <option value="done">Done</option>
+                    <option value="Not done">Not done</option>
+                    <option value="WIP">WIP</option>
+                    <option value="Failed">Failed</option>
+                </select><br>
+                <label for="time">Time:</label>
+                <input required type="number" name="time" value="<?php echo $time ?>">*
+                <p id="error"><?php echo $errormessage ?></p>
+                <a href="../index.php"><input type="button" value="Terug"></a>
+                <input type="submit" value="Edit">
+            </form>
+        </div>
+        <div id="popUp" style="display: none;">
+            <form action="" method="post">
+                <h1>TaskVerwijderen?</h1>
 
+                <input id="yesButton" type="submit" name="delete" value="Ja"></input>
+                <button id="noButton" name="no" value="Nee">Nee</button>
+            </form>
+        </div>
     <?php } ?>
 </body>
 
+<script>
+    const deleteButton = document.getElementById("Delete");
+    const noButton = document.getElementById("noButton");
+    const popUp = document.getElementById("popUp");
+    deleteButton.onclick = function() {
+        popUp.style.display = "block";
+    }
+    noButton.onclick = function() {
+        popUp.style.display = "none";
+    }
+</script>
 </html>
