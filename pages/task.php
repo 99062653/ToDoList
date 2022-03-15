@@ -1,5 +1,5 @@
 <?php
-require "../code/services/taskservice.php";
+require "../code/services/listandtaskservice.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,17 +17,17 @@ require "../code/services/taskservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="newdescription">Description:</label>
-                <input required type="text" name="newdescription" value="<?php echo isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>">*<br>
+                <input required type="text" name="newdescription" value="<?= isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>">*<br>
                 <label for="newstatus">Status:</label>
-                <select name="newstatus" value="<?php echo isset($_POST["newstatus"]) ? $_POST["newstatus"] : '' ?>">
+                <select name="newstatus" value="<?= isset($_POST["newstatus"]) ? $_POST["newstatus"] : '' ?>">
                     <option value="done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>
                     <option value="Failed">Failed</option>
                 </select><br>
                 <label for="newtime">Time:</label>
-                <input required type="number" name="newtime" value="<?php echo isset($_POST["newtime"]) ? $_POST["newtime"] : '' ?>">*
-                <p id="error"><?php echo $errormessage ?></p>
+                <input required type="number" name="newtime" value="<?= isset($_POST["newtime"]) ? $_POST["newtime"] : '' ?>">*
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Add">
             </form>
@@ -36,17 +36,17 @@ require "../code/services/taskservice.php";
         <div id="form">
             <form action="" method="post">
             <label for="description">Description:</label>
-                <input required type="text" name="description" value="<?php echo $description ?>">* <div id="Delete">X</div><br>
+                <input required type="text" name="description" value="<?= $description ?>">* <div id="Delete">X</div><br>
                 <label for="status">Status:</label>
-                <select name="status"  value="<?php echo $status ?>">>
+                <select name="status"  value="<?= $status ?>">>
                     <option value="done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>
                     <option value="Failed">Failed</option>
                 </select><br>
                 <label for="time">Time:</label>
-                <input required type="number" name="time" value="<?php echo $time ?>">*
-                <p id="error"><?php echo $errormessage ?></p>
+                <input required type="number" name="time" value="<?= $time ?>">*
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Edit">
             </form>
@@ -62,15 +62,5 @@ require "../code/services/taskservice.php";
     <?php } ?>
 </body>
 
-<script>
-    const deleteButton = document.getElementById("Delete");
-    const noButton = document.getElementById("noButton");
-    const popUp = document.getElementById("popUp");
-    deleteButton.onclick = function() {
-        popUp.style.display = "block";
-    }
-    noButton.onclick = function() {
-        popUp.style.display = "none";
-    }
-</script>
+<script src="../js/deletepopup.js"></script>
 </html>

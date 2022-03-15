@@ -1,5 +1,5 @@
 <?php
-require "../code/services/listservice.php";
+require "../code/services/listandtaskservice.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +17,10 @@ require "../code/services/listservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="newtitle">Title:</label>
-                <input required type="text" name="newtitle" value="<?php echo isset($_POST["newtitle"]) ? $_POST["newtitle"] : '' ?>">*<br>
+                <input required type="text" name="newtitle" value="<?= isset($_POST["newtitle"]) ? $_POST["newtitle"] : '' ?>">*<br>
                 <label for="newdescription">Description:</label>
-                <input type="text" name="newdescription" value="<?php echo isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>"><br>
-                <p id="error"><?php echo $errormessage ?></p>
+                <input type="text" name="newdescription" value="<?= isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>"><br>
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Add">
             </form>
@@ -29,10 +29,10 @@ require "../code/services/listservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="title">Title:</label>
-                <input required type="text" name="title" value="<?php echo $title ?>">* <div id="Delete">X</div><br>
+                <input required type="text" name="title" value="<?= $title ?>">* <div id="Delete">X</div><br>
                 <label for="description">Description:</label>
-                <input type="text" name="description" value="<?php echo $description ?>"><br>
-                <p id="error"><?php echo $errormessage ?></p>
+                <input type="text" name="description" value="<?= $description ?>"><br>
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Edit">
             </form>
@@ -48,15 +48,5 @@ require "../code/services/listservice.php";
     <?php } ?>
 </body>
 
-<script>
-    const deleteButton = document.getElementById("Delete");
-    const noButton = document.getElementById("noButton");
-    const popUp = document.getElementById("popUp");
-    deleteButton.onclick = function() {
-        popUp.style.display = "block";
-    }
-    noButton.onclick = function() {
-        popUp.style.display = "none";
-    }
-</script>
+<script src="../js/deletepopup.js"></script>
 </html>

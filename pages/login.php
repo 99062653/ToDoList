@@ -17,10 +17,10 @@ require "../code/services/loginservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="username">Username:</label>
-                <input required type="text" name="username" value="<?php echo isset($_POST["username"]) ? $_POST["username"] : '' ?>">*<br>
+                <input required type="text" name="username" value="<?= isset($_POST["username"]) ? $_POST["username"] : '' ?>">*<br>
                 <label for="password">Password:</label>
                 <input required type="password" name="password">*<br>
-                <p id="error"><?php echo $errormessage ?></p>
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Login">
             </form>
@@ -29,10 +29,10 @@ require "../code/services/loginservice.php";
         <div id="form">
             <form action="" method="post">
                 <label for="newusername">Username:</label>
-                <input required type="text" name="newusername" value="<?php echo isset($_POST["newusername"]) ? $_POST["newusername"] : '' ?>">*<br>
+                <input required type="text" name="newusername" value="<?= isset($_POST["newusername"]) ? $_POST["newusername"] : '' ?>">*<br>
                 <label for="newpassword">Password:</label>
                 <input required type="password" name="newpassword">*<br>
-                <p id="error"><?php echo $errormessage ?></p>
+                <p id="error"><?= $errormessage ?></p>
                 <a href="../index.php"><input type="button" value="Terug"></a>
                 <input type="submit" value="Sign up">
             </form>

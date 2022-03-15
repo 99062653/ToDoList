@@ -33,22 +33,27 @@ if (isset($_COOKIE["userid"])) {
     <div id="container">
         <?php if (isset($_COOKIE["userid"])) { ?>
             <div id="header-container">
-                <h1><?php echo $_COOKIE["username"]; ?>, Uw lijsten <span class="header-new"><a class="urls" href="pages/list.php?new=1">Nieuwe lijst + </a></span></h1>
+                <h1><?php echo $_COOKIE["username"]; ?>, Uw lijsten <span class="header-new"><a class="urls" href="pages/list.php?list=1&task=0&new=1">Nieuwe lijst + </a></span></h1>
             </div>
             <div id="lists">
                 <?php for ($i = 0; $i < count($listrows); $i++) { ?>
                     <div id="list">
-                        <h2><?php echo $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?new=0&id=<?php echo $listrows[$i]["id"] ?>">Edit</a></span></h2>
-                        <p><?php echo strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
-                        <a class="urls task-add" href="pages/task.php?new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
+                        <h2><?= $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?list=1&task=0&new=0&id=<?= $listrows[$i]["id"] ?>">Edit</a></span></h2>
+                        <p><?= strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
+                        <a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
                         <div id="tasks">
-                        <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
+                            <?php for ($j = 0; $j < count($listrows[$i]["tasks"]); $j++) { ?>
+                                <div id="task">
+                                    <h3></h3>
+                                </div>
+                            <?php } ?>
+                        <!-- <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
                             <div id="task">
-                                <h3><?php echo $taskrows[$j]["description"] ?><span class="task-edit"><a class="urls" href="pages/task.php?new=0&id=<?php echo $taskrows[$j]["id"] ?>">Edit</a></span></h3>
-                                <h3>Status: <?php echo $taskrows[$j]["status"] ?></h3>
-                                <h3>Time: <?php echo $taskrows[$j]["time"] ?></h3>
+                                <h3><?= $taskrows[$j]["description"] ?><span class="task-edit"><a class="urls" href="pages/task.php?new=0&id=<?= $taskrows[$j]["id"] ?>">Edit</a></span></h3>
+                                <h3>Status: <?= $taskrows[$j]["status"] ?></h3>
+                                <h3>Time: <?= $taskrows[$j]["time"] ?> Minuten</h3>
                             </div>
-                        <?php } ?>
+                        <?php } ?> -->
                         </div>
                     </div> 
                 <?php } ?>
@@ -60,7 +65,7 @@ if (isset($_COOKIE["userid"])) {
         <?php } ?>
     </div>
     <footer>
-        <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?php echo date("Y"); ?></a>
+        <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?= date("Y"); ?></a>
     </footer>
 </body>
 
