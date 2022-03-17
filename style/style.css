@@ -159,15 +159,17 @@ input[type="button"] {
 }
 
 #lists {
-    position: relative;
-    display: grid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
     width: 100%;
-    grid-template-columns: repeat(99, 300px);
-    grid-gap: 15px;
     margin: 5px;
 }
 
 #list {
+    min-width: 300px;
     padding: 5px;
     border: 1px solid #000000;
     background-color: #ffffff;

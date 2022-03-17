@@ -2,7 +2,6 @@
 if (isset($_COOKIE["userid"])) {
     require "code/services/homeservice.php";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,20 +39,18 @@ if (isset($_COOKIE["userid"])) {
                     <div id="list">
                         <h2><?= $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?list=1&task=0&new=0&id=<?= $listrows[$i]["id"] ?>">Edit</a></span></h2>
                         <p><?= strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
+                        <?php if ($_COOKIE["admin"] == 1) { ?>
+                            <p>Created by: <?= $listrows[$i]["userid"]; ?></p>                            
+                        <?php } ?>
                         <a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
                         <div id="tasks">
-                            <?php for ($j = 0; $j < count($listrows[$i]["tasks"]); $j++) { ?>
+                            <?php foreach ($listrows[$i]["tasks"] as $tasks) { ?>
                                 <div id="task">
-                                    <h3></h3>
+                                <h3><?= $tasks["description"] ?><span class="task-edit"><a class="urls" href="pages/task.php?list=0&task=1&new=0&id=<?= $tasks["id"] ?>">Edit</a></span></h3>
+                                <h3>Status: <?= $tasks["status"] ?></h3>
+                                <h3>Time: <?= $tasks["time"] ?></h3>
                                 </div>
                             <?php } ?>
-                        <!-- <?php for ($j = 0; $j < count($taskrows); $j++) { ?>
-                            <div id="task">
-                                <h3><?= $taskrows[$j]["description"] ?><span class="task-edit"><a class="urls" href="pages/task.php?new=0&id=<?= $taskrows[$j]["id"] ?>">Edit</a></span></h3>
-                                <h3>Status: <?= $taskrows[$j]["status"] ?></h3>
-                                <h3>Time: <?= $taskrows[$j]["time"] ?> Minuten</h3>
-                            </div>
-                        <?php } ?> -->
                         </div>
                     </div> 
                 <?php } ?>

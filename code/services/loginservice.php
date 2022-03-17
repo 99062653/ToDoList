@@ -5,6 +5,7 @@ $errormessage = "";
 if ($_GET["login"] == -1) {
     setcookie("userid", $row["id"], time()-3600 , "/" );
     setcookie("username", $row["username"], time()-3600 , "/" );
+    setcookie("admin", $row["superuser"], time()-3600 , "/" );
     header("location: ../index.php");
 }
 
@@ -26,6 +27,7 @@ if ($_GET["login"] == 1) {
             if($result->num_rows != 0) {
                 setcookie("userid", $row["id"], time()+3600 , "/" );
                 setcookie("username", $row["username"], time()+3600 , "/" );
+                setcookie("admin", $row["superuser"], time()+3600 , "/" );
                 header("location: ../index.php");
             } else {
                 $errormessage = "onjuist wachtwoord";
