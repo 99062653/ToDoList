@@ -38,7 +38,7 @@ require "../code/services/listandtaskservice.php";
             <label for="description">Description:</label>
                 <input required type="text" name="description" value="<?= $description ?>">* <div id="Delete">X</div><br>
                 <label for="status">Status:</label>
-                <select name="status"  value="<?= $status ?>">>
+                <select name="status"  value="<?= $status ?>">
                     <option value="done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>

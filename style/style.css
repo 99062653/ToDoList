@@ -42,13 +42,13 @@ h1 {
     right: 25px;
 }
 
-#signup-button {
+#signup-button, #admin-button {
     margin-left: 25px;
     padding: 5px;
     border-radius: 25px;
     color: #ffffff;
     background-color: #9925A7;
-} #signup-button:hover {
+} #signup-button:hover, #admin-button:hover {
     color: #000000;
 }
 
@@ -162,14 +162,13 @@ input[type="button"] {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
     gap: 15px;
-    width: 100%;
+    min-width: 100%;
     margin: 5px;
 }
 
 #list {
-    min-width: 300px;
+    width: 300px;
     padding: 5px;
     border: 1px solid #000000;
     background-color: #ffffff;
@@ -184,6 +183,25 @@ input[type="button"] {
     float: right;
     font-weight: bolder;
     font-size: 25px;
+}
+
+.task-sort, .task-filter {
+    float: left;
+    background-color: white;
+    margin: 0;
+    margin-right: 2px;
+}
+
+.sorts, .filters {
+    display: none;
+    border-top: 1px solid black;
+    padding: 5px;
+    margin-top: 50px;
+}
+
+.sorts > select, .filters > select {
+    margin-top: 5px;
+    width: 100px;
 }
 
 #tasks {

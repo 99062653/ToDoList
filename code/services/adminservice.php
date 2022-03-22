@@ -1,5 +1,6 @@
 <?php 
-require "code/connection.php";
+require "../code/connection.php";
+
 
 if ($_COOKIE["admin"] == 0) {
     $stmt = $conn->prepare("SELECT * FROM list WHERE userid = ?");
@@ -21,6 +22,12 @@ $stmt->execute();
 $taskresult = $stmt->get_result();
 $taskrows = mysqli_fetch_all($taskresult, MYSQLI_ASSOC);
 
+
+$stmt = $conn->prepare("SELECT * FROM user");
+$stmt->execute();
+$userresult = $stmt->get_result();
+$userrows = mysqli_fetch_all($userresult, MYSQLI_ASSOC);
+
 for ($i = 0; $i < count($taskrows); $i++) { 
     for ($j = 0; $j < count($listrows); $j++) {
         if ($taskrows[$i]["listid"] == $listrows[$j]["id"]) {
@@ -30,6 +37,14 @@ for ($i = 0; $i < count($taskrows); $i++) {
                 "status" => $taskrows[$i]["status"],
                 "time" => $taskrows[$i]["time"]
             );
+        }
+    }
+}
+
+for ($i = 0; $i < count($userrows); $i++) { 
+    for ($j = 0; $j < count($listrows); $j++) {
+        if ($userrows[$i]["id"] == $listrows[$j]["userid"]) {
+            $listrows[$j]["madeby"] = $userrows[$i]["username"];
         }
     }
 }
@@ -50,15 +65,4 @@ if (isset($_POST["sortlistid"])) {
         }
     }
 }
-
-if (isset($_POST["filterlistid"])) {
-    for ($i = 0; $i < count($listrows); $i++) {
-        foreach ($listresult[$i]["tasks"] as $tasks) {
-            if ($tasks["status"] != $_POST["filter-status"]) {
-                
-            }
-        }
-    }
-}
-
 ?>
