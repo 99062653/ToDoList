@@ -36,7 +36,7 @@ for ($i = 0; $i < count($taskrows); $i++) {
 
 if (isset($_POST["sortlistid"])) {
     for ($i = 0; $i < count($listrows); $i++) {
-        if ($listrows[$i]["id"] == $_POST["listid"]) {
+        if ($listrows[$i]["id"] == $_POST["sortlistid"]) {
             switch ($_POST["sort-time"]) {
                 case "unset":
                     break;
