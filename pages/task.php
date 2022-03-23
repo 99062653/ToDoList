@@ -20,7 +20,7 @@ require "../code/services/listandtaskservice.php";
                 <input required type="text" name="newdescription" value="<?= isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>">*<br>
                 <label for="newstatus">Status:</label>
                 <select name="newstatus" value="<?= isset($_POST["newstatus"]) ? $_POST["newstatus"] : '' ?>">
-                    <option value="done">Done</option>
+                    <option value="Done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>
                     <option value="Failed">Failed</option>
@@ -39,7 +39,7 @@ require "../code/services/listandtaskservice.php";
                 <input required type="text" name="description" value="<?= $description ?>">* <div id="Delete">X</div><br>
                 <label for="status">Status:</label>
                 <select name="status"  value="<?= $status ?>">
-                    <option value="done">Done</option>
+                    <option value="Done">Done</option>
                     <option value="Not done">Not done</option>
                     <option value="WIP">WIP</option>
                     <option value="Failed">Failed</option>

@@ -33,16 +33,31 @@ if (isset($_COOKIE["userid"])) {
                     <h2><?= $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?list=1&task=0&new=0&id=<?= $listrows[$i]["id"] ?>">Edit</a></span></h2>
                     <p><?= strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
                     <p>Created by <?= $listrows[$i]["madeby"] ?></p>
-                    <button class="urls task-sort" onclick="displaySort(<?= $listrows[$i]["id"] ?>)">Sort</button><a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
+                    <?php if (isset($listrows[$i]["tasks"])) { ?>
+                            <button class="urls task-sort" onclick="displaySort(<?= $listrows[$i]["id"] ?>)">Sort</button><button class="urls task-filter" onclick="displayFilter(<?= $listrows[$i]["id"] ?>)">Filter</button>
+                        <?php } ?>
+                    <a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
                     <form id="sort-<?= $listrows[$i]["id"] ?>" class="sorts" method="post">
                         <input type="text" name="sortlistid" value="<?= $listrows[$i]["id"] ?>" hidden>
                         <select name="sort-time">
                             <option value="unset">Tijd</option>
                             <option value=">"> > </option>
-                            <option value="<"> < </option>
+                            <option value="<">
+                                < </option>
                         </select>
                         <input type="submit" value="Sorteer">
                     </form>
+                    <form id="filter-<?= $listrows[$i]["id"] ?>" class="filters" method="post">
+                            <input type="text" name="filterlistid" value="<?= $listrows[$i]["id"] ?>" hidden>
+                            <select name="filter-status">
+                                <option value="unset">Status</option>
+                                <option value="done">Done</option>
+                                <option value="Not done">Not done</option>
+                                <option value="WIP">WIP</option>
+                                <option value="Failed">Failed</option>
+                            </select>
+                            <input type="submit" value="Filter">
+                        </form>
                     <div id="tasks">
                         <?php foreach ($listrows[$i]["tasks"] as $tasks) { ?>
                             <div id="task">
@@ -55,10 +70,12 @@ if (isset($_COOKIE["userid"])) {
                 </div>
             <?php } ?>
         </div>
-        <footer>
-            <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?= date("Y"); ?></a>
-        </footer>
+    </div>
+    <footer>
+        <a class="urls" href="https://github.com/99062653" target="_blank">Rick Huisman &copy; <?= date("Y"); ?></a>
+    </footer>
 </body>
-<script src="js/sortpopup.js"></script>
+<script src="../js/sortpopup.js"></script>
+<script src="../js/filterpopup.js"></script>
 
 </html>

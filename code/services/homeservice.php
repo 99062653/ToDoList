@@ -51,11 +51,13 @@ if (isset($_POST["sortlistid"])) {
     }
 }
 
-if (isset($_POST["filterlistid"])) {
+if (isset($_POST["filterlistid"]) && $_POST["filter-status"] != "unset") {
     for ($i = 0; $i < count($listrows); $i++) {
-        foreach ($listresult[$i]["tasks"] as $tasks) {
-            if ($tasks["status"] != $_POST["filter-status"]) {
-                
+        if ($listrows[$i]["id"] == $_POST["filterlistid"]) {
+            foreach ($listrows[$i]["tasks"] as $j => $tasks) {
+                if ($tasks["status"] != $_POST["filter-status"]) {
+                    unset($listrows[$i]["tasks"][$j]);
+                }
             }
         }
     }

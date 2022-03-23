@@ -39,7 +39,10 @@ if (isset($_COOKIE["userid"])) {
                     <div id="list">
                         <h2><?= $listrows[$i]["title"] ?> <span class="list-edit"><a class="urls" href="pages/list.php?list=1&task=0&new=0&id=<?= $listrows[$i]["id"] ?>">Edit</a></span></h2>
                         <p><?= strlen($listrows[$i]["description"]) > 0 ? $listrows[$i]["description"] : "Geen description" ?></p>
-                        <button class="urls task-sort" onclick="displaySort(<?= $listrows[$i]["id"] ?>)">Sort</button><button class="urls task-filter" onclick="displayFilter(<?= $listrows[$i]["id"] ?>)">Filter</button><a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
+                        <a class="urls task-add" href="pages/task.php?list=0&task=1&new=1&listid=<?php echo $listrows[$i]["id"] ?>">+</a>
+                        <?php if (isset($listrows[$i]["tasks"])) { ?>
+                            <button class="urls task-sort" onclick="displaySort(<?= $listrows[$i]["id"] ?>)">Sort</button><button class="urls task-filter" onclick="displayFilter(<?= $listrows[$i]["id"] ?>)">Filter</button>
+                        <?php } ?>
                         <form id="sort-<?= $listrows[$i]["id"] ?>" class="sorts" method="post">
                             <input type="text" name="sortlistid" value="<?= $listrows[$i]["id"] ?>" hidden>
                             <select name="sort-time">

@@ -51,7 +51,7 @@ for ($i = 0; $i < count($userrows); $i++) {
 
 if (isset($_POST["sortlistid"])) {
     for ($i = 0; $i < count($listrows); $i++) {
-        if ($listrows[$i]["id"] == $_POST["listid"]) {
+        if ($listrows[$i]["id"] == $_POST["sortlistid"]) {
             switch ($_POST["sort-time"]) {
                 case "unset":
                     break;
@@ -61,6 +61,18 @@ if (isset($_POST["sortlistid"])) {
                 case "<":
                     arsort($listrows[$i]["tasks"]);
                     break;
+            }
+        }
+    }
+}
+
+if (isset($_POST["filterlistid"]) && $_POST["filter-status"] != "unset") {
+    for ($i = 0; $i < count($listrows); $i++) {
+        if ($listrows[$i]["id"] == $_POST["filterlistid"]) {
+            foreach ($listrows[$i]["tasks"] as $j => $tasks) {
+                if ($tasks["status"] != $_POST["filter-status"]) {
+                    unset($listrows[$i]["tasks"][$j]);
+                }
             }
         }
     }
