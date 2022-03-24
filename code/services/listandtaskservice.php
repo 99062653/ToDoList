@@ -10,7 +10,7 @@ if ($_GET["list"] == 1) {
                 $stmt->bind_param("ssi", $_POST["newtitle"], $_POST["newdescription"], $_COOKIE["userid"]);
                 $stmt->execute();
 
-                header("location: ../index.php");
+                header("location: ../index.php?page=home");
             } else {
                 $errormessage = "Title moet minimaal 5 characters hebben";
             }
@@ -40,7 +40,7 @@ if ($_GET["list"] == 1) {
                 $stmt->bind_param("ssi", $_POST["title"], $_POST["description"], $_GET["id"]);
                 $stmt->execute();
 
-                header("location: ../index.php");
+                header("location: ../index.php?page=home");
             } else {
                 $errormessage = "Title moet minimaal 5 characters hebben";
             }
@@ -52,7 +52,7 @@ if ($_GET["list"] == 1) {
             $stmt->execute();
         
             
-            header("location: ../index.php");
+            header("location: ../index.php?page=home");
         }
     }
 }
@@ -66,7 +66,7 @@ if ($_GET["task"] == 1) {
                     $stmt->bind_param("ssii", $_POST["newdescription"], $_POST["newstatus"], $_POST["newtime"], $_GET["listid"]);
                     $stmt->execute();
         
-                    header("location: ../index.php");
+                    header("location: ../index.php?page=home");
                 } else {
                     $errormessage = "Time moet 2 nummers bevatten";
                 }
@@ -117,7 +117,7 @@ if ($_GET["task"] == 1) {
             $stmt->execute();
         
             
-            header("location: ../index.php");
+            header("location: ../index.php?page=home");
         }
     }
 }
