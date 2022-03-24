@@ -21,7 +21,7 @@ require "../code/services/listandtaskservice.php";
                 <label for="newdescription">Description:</label>
                 <input type="text" name="newdescription" value="<?= isset($_POST["newdescription"]) ? $_POST["newdescription"] : '' ?>"><br>
                 <p id="error"><?= $errormessage ?></p>
-                <a href="../index.php"><input type="button" value="Terug"></a>
+                <a href="../index.php?page=home"><input type="button" value="Terug"></a>
                 <input type="submit" value="Add">
             </form>
         </div>
@@ -33,7 +33,7 @@ require "../code/services/listandtaskservice.php";
                 <label for="description">Description:</label>
                 <input type="text" name="description" value="<?= $description ?>"><br>
                 <p id="error"><?= $errormessage ?></p>
-                <a href="../index.php"><input type="button" value="Terug"></a>
+                <a href="../index.php?page=home"><input type="button" value="Terug"></a>
                 <input type="submit" value="Edit">
             </form>
         </div>

@@ -28,7 +28,7 @@ require "../code/services/listandtaskservice.php";
                 <label for="newtime">Time:</label>
                 <input required type="number" name="newtime" value="<?= isset($_POST["newtime"]) ? $_POST["newtime"] : '' ?>">*
                 <p id="error"><?= $errormessage ?></p>
-                <a href="../index.php"><input type="button" value="Terug"></a>
+                <a href="../index.php?page=home"><input type="button" value="Terug"></a>
                 <input type="submit" value="Add">
             </form>
         </div>
@@ -47,13 +47,13 @@ require "../code/services/listandtaskservice.php";
                 <label for="time">Time:</label>
                 <input required type="number" name="time" value="<?= $time ?>">*
                 <p id="error"><?= $errormessage ?></p>
-                <a href="../index.php"><input type="button" value="Terug"></a>
+                <a href="../index.php?page=home"><input type="button" value="Terug"></a>
                 <input type="submit" value="Edit">
             </form>
         </div>
         <div id="popUp" style="display: none;">
             <form action="" method="post">
-                <h1>TaskVerwijderen?</h1>
+                <h1>Task Verwijderen?</h1>
 
                 <input id="yesButton" type="submit" name="delete" value="Ja"></input>
                 <button id="noButton" name="no" value="Nee">Nee</button>
