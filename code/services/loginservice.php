@@ -28,7 +28,7 @@ if ($_GET["login"] == 1) {
                 setcookie("userid", $row["id"], time()+3600 , "/" );
                 setcookie("username", $row["username"], time()+3600 , "/" );
                 setcookie("admin", $row["superuser"], time()+3600 , "/" );
-                header("location: ../index.php");
+                header("location: ../index.php?page=home");
             } else {
                 $errormessage = "onjuist wachtwoord";
             }
@@ -56,7 +56,7 @@ if ($_GET["login"] == 0) {
                     $id = $conn->insert_id;
                     setcookie("userid", $id, time()+3600 , "/" );
                     setcookie("username", $_POST["newusername"], time()+3600 , "/" );
-                    header("location: ../index.php");
+                    header("location: ../index.php?page=home");
                 } else {
                     $errormessage = "Password moet een special character hebben";
                 }

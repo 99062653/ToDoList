@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE["userid"])) {
-    require "code/services/homeservice.php";
+    require "code/services/overviewservice.php";
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ if (isset($_COOKIE["userid"])) {
         <div id="header-buttons">
             <?php if (isset($_COOKIE["userid"])) { ?>
                 <?php if (isset($_COOKIE["admin"]) == 1) { ?>
-                    <a id="admin-button" class="urls" href="pages/admin.php">Admin</a>
+                    <a id="admin-button" class="urls" href="pages/admin.php?page=admin">Admin</a>
                 <?php } ?>
                 <a class="urls" href="pages/login.php?login=-1">Logout</a>
             <?php } else { ?>

@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE["userid"])) {
-    require "../code/services/adminservice.php";
+    require "../code/services/overviewservice.php";
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ if (isset($_COOKIE["userid"])) {
         <img class="logo" src="../img/logo.png" alt="Logo">
         <div id="header-buttons">
             <?php if (isset($_COOKIE["admin"]) == 1) { ?>
-                <a class="urls" href="../index.php">Home</a>
+                <a class="urls" href="../index.php?page=home">Home</a>
             <?php } ?>
         </div>
     </header>
