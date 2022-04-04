@@ -53,7 +53,7 @@ require "../code/services/listandtaskservice.php";
         </div>
         <div id="popUp" style="display: none;">
             <form action="" method="post">
-                <h1>Task Verwijderen?</h1>
+                <h1>TaskVerwijderen?</h1>
 
                 <input id="yesButton" type="submit" name="delete" value="Ja"></input>
                 <button id="noButton" name="no" value="Nee">Nee</button>
