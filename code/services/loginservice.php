@@ -46,7 +46,7 @@ if ($_GET["login"] == 0) {
 
         $result = $stmt->get_result();
         if ($result->num_rows == 0) {   
-            if (strlen($_POST["newpassword"]) > 8 && strlen($_POST["newpassword"]) < 15) {
+            if (strlen($_POST["newusername"]) <= 15 && strlen($_POST["newpassword"]) >= 8 && strlen($_POST["newpassword"]) < 15) {
                 if(preg_match("/\W/", $_POST["newpassword"])) {
                     $hashed = hash("md5", $_POST["newpassword"]);
                     $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
