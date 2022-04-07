@@ -102,7 +102,7 @@ if ($_GET["task"] == 1) {
                     $stmt->bind_param("ssii", $_POST["description"], $_POST["status"], $_POST["time"], $_GET["id"]);
                     $stmt->execute();
 
-                    header("location: ../index.php");
+                    header("location: ../index.php?page=home");
                 } else {
                     $errormessage = "Time moet 2 nummers bevatten";   
                 }
