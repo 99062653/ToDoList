@@ -5,7 +5,7 @@ $errormessage = "";
 if ($_GET["list"] == 1) {
     if ($_GET["new"] == 1) {
         if (isset($_POST["newtitle"])) {
-            if (strlen($_POST["newtitle"]) > 5) {
+            if (strlen($_POST["newtitle"]) >= 5) {
                 $stmt = $conn->prepare("INSERT INTO list (title, description, userid) VALUES (?, ?, ?)");
                 $stmt->bind_param("ssi", $_POST["newtitle"], $_POST["newdescription"], $_COOKIE["userid"]);
                 $stmt->execute();
@@ -35,7 +35,7 @@ if ($_GET["list"] == 1) {
         }
 
         if (isset($_POST["title"])) {
-            if (strlen($_POST["title"]) > 5) {
+            if (strlen($_POST["title"]) >= 5) {
                 $stmt = $conn->prepare("UPDATE list SET title = ?, description = ? WHERE id = ?");
                 $stmt->bind_param("ssi", $_POST["title"], $_POST["description"], $_GET["id"]);
                 $stmt->execute();
