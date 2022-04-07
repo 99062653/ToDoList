@@ -19,7 +19,7 @@ if (isset($_COOKIE["userid"])) {
         <img class="logo" src="img/logo.png" alt="Logo">
         <div id="header-buttons">
             <?php if (isset($_COOKIE["userid"])) { ?>
-                <?php if (isset($_COOKIE["admin"]) == 1) { ?>
+                <?php if ($_COOKIE["admin"] == 1) { ?>
                     <a id="admin-button" class="urls" href="pages/admin.php?page=admin">Admin</a>
                 <?php } ?>
                 <a class="urls" href="pages/login.php?login=-1">Logout</a>
