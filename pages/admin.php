@@ -2,6 +2,10 @@
 if (isset($_COOKIE["userid"])) {
     require "../code/services/overviewservice.php";
 }
+
+if ($_COOKIE["admin"] == 0) {
+    header("Location: ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
